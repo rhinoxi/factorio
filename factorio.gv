@@ -1,0 +1,236 @@
+digraph {
+  bgcolor = "#242324"
+  ranksep = 1.5
+  node[label=" ", shape=square, style=filled, color=transparent, fillcolor="#313131", width=0.8, height=0.8, imagescale=both]
+  edge[color="#FBE7C4", fontcolor=transparent]
+
+  CopperPlate[image="icons/Copper_plate.png"]
+  CopperCable[image="icons/Copper_cable.png"]
+  IronPlate[image="icons/Iron_plate.png"]
+  IronGearWheel[image="icons/Iron_gear_wheel.png"]
+  ElectronicCircuit[image="icons/Electronic_circuit.png"]
+  AdvancedCircuit[image="icons/Advanced_circuit.png"]
+  IronStick[image="icons/Iron_stick.png"]
+  SteelPlate[image="icons/Steel_plate.png"]
+  Pipe[image="icons/Pipe.png"]
+  EngineUnit[image="icons/Engine_unit.png"]
+  ElectricEngineUnit[image="icons/Electric_engine_unit.png"]
+  FlyingRobotFrame[image="icons/Flying_robot_frame.png"]
+  LowDensityStructure[image="icons/Low_density_structure.png"]
+  RocketControlUnit[image="icons/Rocket_control_unit.png"]
+  Rail[image="icons/Straight_rail.png"]
+  Stone[image="icons/Stone.png"]
+  Coal[image="icons/Coal.png"]
+  StoneBrick[image="icons/Stone_brick.png"]
+  Wall[image="icons/Wall.png"]
+  ElectricFurnace[image="icons/Electric_furnace.png"]
+  RocketPart[image="icons/Rocket_part.png"]
+
+  Grenade[image="icons/Grenade.png"]
+  FirearmMagazine[image="icons/Firearm_magazine.png"]
+  PiercingRoundsMagazine[image="icons/Piercing_rounds_magazine.png"]
+
+  SpeedModule[image="icons/Speed_module.png"]
+  ProductivityModule[image="icons/Productivity_module.png"]
+
+  TransportBelt[image="icons/Transport_belt.png"]
+  FastTransportBelt[image="icons/Fast_transport_belt.png"]
+  ExpressTransportBelt[image="icons/Express_transport_belt.png"]
+  UndergroundBelt[image="icons/Underground_belt.png"]
+  FastUndergroundBelt[image="icons/Fast_underground_belt.png"]
+  ExpressUndergroundBelt[image="icons/Express_underground_belt.png"]
+  ProcessingUnit[image="icons/Processing_unit.png"]
+
+  Splitter[image="icons/Splitter.png"]
+  FastSplitter[image="icons/Fast_splitter.png"]
+  ExpressSplitter[image="icons/Express_splitter.png"]
+
+  Inserter[image="icons/Inserter.png"]
+  LongHandedInserter[image="icons/Long-handed_inserter.png"]
+  FastInserter[image="icons/Fast_inserter.png"]
+  FilterInserter[image="icons/Filter_inserter.png"]
+  StackInserter[image="icons/Stack_inserter.png"]
+  StackFilterInserter[image="icons/Stack_filter_inserter.png"]
+
+  Lubricant[image="icons/Lubricant.png"]
+  LightOil[image="icons/Light_oil.png"]
+  HeavyOil[image="icons/Heavy_oil.png"]
+  SolidFuel[image="icons/Solid_fuel.png"]
+  Sulfur[image="icons/Sulfur.png"]
+  SulfuricAcid[image="icons/Sulfuric_acid.png"]
+  PetroleumGas[image="icons/Petroleum_gas.png"]
+  Water[image="icons/Water.png"]
+  Battery[image="icons/Battery.png"]
+  RocketFuel[image="icons/Rocket_fuel.png"]
+  PlasticBar[image="icons/Plastic_bar.png"]
+
+  AutomationSciencePack_RED[image="icons/Automation_science_pack.png"]
+  LogisticSciencePack_GREEN[image="icons/Logistic_science_pack.png"]
+  ChemicalSciencePack_BLUE[image="icons/Chemical_science_pack.png"]
+  ProductionSciencePack_PURPLE[image="icons/Production_science_pack.png"]
+  UtilitySciencePack_YELLOW[image="icons/Automation_science_pack.png"]
+  MilitarySciencePack_GRAY[image="icons/Military_science_pack.png"]
+
+
+  CopperPlate -> CopperCable [label = 0.5]
+  IronPlate -> IronGearWheel [label = 2]
+
+  CopperCable -> ElectronicCircuit [label = 3]
+  IronPlate -> ElectronicCircuit []
+
+  IronGearWheel -> TransportBelt []
+  IronPlate -> TransportBelt []
+
+  IronGearWheel -> FastTransportBelt [label = 5]
+  TransportBelt -> FastTransportBelt []
+
+  FastTransportBelt -> ExpressTransportBelt []
+  IronGearWheel -> ExpressTransportBelt [label = 10]
+  Lubricant -> ExpressTransportBelt [label = 20]
+
+  HeavyOil -> Lubricant []
+
+  IronPlate -> UndergroundBelt [label = 5]
+  TransportBelt -> UndergroundBelt [label = 2.5]
+
+  IronGearWheel -> FastUndergroundBelt [label = 20]
+  UndergroundBelt -> FastUndergroundBelt []
+
+  FastUndergroundBelt -> ExpressUndergroundBelt []
+  IronGearWheel -> ExpressUndergroundBelt [label = 40]
+  Lubricant -> ExpressUndergroundBelt [label = 20]
+
+  ElectronicCircuit -> Splitter [label = 5] 
+  IronPlate -> Splitter [label = 5]
+  TransportBelt -> Splitter [label = 4]
+
+  ElectronicCircuit -> FastSplitter [label = 10]
+  IronGearWheel -> FastSplitter [label = 10]
+  Splitter -> FastSplitter []
+
+  Coal -> PlasticBar [label = 0.5]
+  PetroleumGas -> PlasticBar [label = 10]
+
+  CopperCable -> AdvancedCircuit [label = 4]
+  ElectronicCircuit -> AdvancedCircuit [label = 2]
+  PlasticBar -> AdvancedCircuit [label = 2]
+
+  AdvancedCircuit -> ProcessingUnit [label = 2]
+  ElectronicCircuit -> ProcessingUnit [label = 20]
+  SulfuricAcid -> ProcessingUnit [label = 5]
+
+  AdvancedCircuit -> ExpressSplitter [label = 10]
+  FastSplitter -> ExpressSplitter []
+  IronGearWheel -> ExpressSplitter [label = 10]
+  Lubricant -> ExpressSplitter [label = 80]
+
+  ElectronicCircuit -> Inserter
+  IronPlate -> Inserter
+  IronGearWheel -> Inserter
+
+  Inserter -> LongHandedInserter
+  IronGearWheel -> LongHandedInserter
+  IronPlate -> LongHandedInserter
+
+  ElectronicCircuit -> FastInserter [label = 2]
+  Inserter -> FastInserter []
+  IronPlate -> FastInserter [label = 2]
+
+  FastInserter -> FilterInserter
+  ElectronicCircuit -> FilterInserter [label = 4]
+
+  AdvancedCircuit -> StackInserter
+  ElectronicCircuit -> StackInserter [label = 15]
+  FastInserter -> StackInserter
+  IronGearWheel -> StackInserter [label = 15]
+
+  ElectronicCircuit -> StackFilterInserter [label = 5]
+  StackInserter -> StackFilterInserter [label = 1]
+
+  PetroleumGas -> Sulfur [label = 15]
+  Water -> Sulfur [label = 15]
+
+  IronPlate -> SulfuricAcid [label = "1/50"]
+  Sulfur -> SulfuricAcid [label = "1/10"]
+  Water -> SulfuricAcid [label = 2]
+
+  CopperPlate -> Battery
+  IronPlate -> Battery
+  SulfuricAcid -> Battery [label = 20]
+
+  IronPlate -> IronStick [label = 0.5]
+
+  IronPlate -> SteelPlate [label = 5]
+
+  IronPlate -> Pipe
+  
+  IronGearWheel -> EngineUnit
+  Pipe -> EngineUnit [label = 2]
+  SteelPlate -> EngineUnit
+
+  ElectronicCircuit -> ElectricEngineUnit [label = 2]
+  EngineUnit -> ElectricEngineUnit
+  Lubricant -> ElectricEngineUnit [label = 15]
+
+  Battery -> FlyingRobotFrame [label = 2]
+  ElectricEngineUnit -> FlyingRobotFrame []
+  ElectronicCircuit -> FlyingRobotFrame [label = 3]
+  SteelPlate -> FlyingRobotFrame
+
+  CopperPlate -> LowDensityStructure [label = 20]
+  PlasticBar -> LowDensityStructure [label = 5]
+  SteelPlate -> LowDensityStructure [label = 2]
+
+  LightOil -> RocketFuel [label = 10]
+  SolidFuel -> RocketFuel [label = 10]
+
+  ProcessingUnit -> RocketControlUnit
+  SpeedModule -> RocketControlUnit
+
+  ElectronicCircuit -> SpeedModule [label = 5]
+  AdvancedCircuit -> SpeedModule [label = 5]
+
+  LowDensityStructure -> RocketPart [label = 10]
+  RocketControlUnit -> RocketPart [label = 10]
+  RocketFuel -> RocketPart [label = 10]
+
+  AdvancedCircuit -> ProductivityModule [label = 5]
+  ElectronicCircuit -> ProductivityModule [label = 5]
+
+  IronStick -> Rail [label = 0.5]
+  SteelPlate -> Rail [label = 0.5]
+  Stone -> Rail [label = 0.5]
+
+  IronGearWheel -> AutomationSciencePack_RED
+  CopperPlate -> AutomationSciencePack_RED
+
+  Inserter -> LogisticSciencePack_GREEN
+  TransportBelt -> LogisticSciencePack_GREEN
+
+  AdvancedCircuit -> ChemicalSciencePack_BLUE [label = 1.5]
+  EngineUnit -> ChemicalSciencePack_BLUE
+  Sulfur -> ChemicalSciencePack_BLUE [label = 0.5]
+
+  ElectricFurnace -> ProductionSciencePack_PURPLE [label = "1/3"]
+  ProductivityModule -> ProductionSciencePack_PURPLE [label = "1/3"]
+  Rail -> ProductionSciencePack_PURPLE [label = 10]
+
+  FlyingRobotFrame -> UtilitySciencePack_YELLOW [label = "1/3"]
+  LowDensityStructure -> UtilitySciencePack_YELLOW
+  ProcessingUnit -> UtilitySciencePack_YELLOW [label = "2/3"]
+
+  Coal -> Grenade [label = 10]
+  IronPlate -> Grenade [label = 5]
+
+  CopperPlate -> PiercingRoundsMagazine [label = 5]
+  FirearmMagazine -> PiercingRoundsMagazine
+  SteelPlate -> PiercingRoundsMagazine
+
+  IronPlate -> FirearmMagazine [label = 4]
+
+  StoneBrick -> Wall [label = 5]
+
+  Grenade -> MilitarySciencePack_GRAY [label = 0.5]
+  PiercingRoundsMagazine -> MilitarySciencePack_GRAY [label = 0.5]
+  StoneBrick -> MilitarySciencePack_GRAY
+}
