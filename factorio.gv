@@ -25,6 +25,8 @@ digraph {
   Wall[image="icons/Wall.png"]
   ElectricFurnace[image="icons/Electric_furnace.png"]
   RocketPart[image="icons/Rocket_part.png"]
+  Concrete[image="icons/Concrete.png"]
+  IronOre[image="icons/Iron_ore.png"]
 
   Grenade[image="icons/Grenade.png"]
   FirearmMagazine[image="icons/Firearm_magazine.png"]
@@ -64,11 +66,13 @@ digraph {
   RocketFuel[image="icons/Rocket_fuel.png"]
   PlasticBar[image="icons/Plastic_bar.png"]
 
+  RocketSilo[image="icons/Rocket_silo.png"]
+
   AutomationSciencePack_RED[image="icons/Automation_science_pack.png"]
   LogisticSciencePack_GREEN[image="icons/Logistic_science_pack.png"]
   ChemicalSciencePack_BLUE[image="icons/Chemical_science_pack.png"]
   ProductionSciencePack_PURPLE[image="icons/Production_science_pack.png"]
-  UtilitySciencePack_YELLOW[image="icons/Automation_science_pack.png"]
+  UtilitySciencePack_YELLOW[image="icons/Utility_science_pack.png"]
   MilitarySciencePack_GRAY[image="icons/Military_science_pack.png"]
 
 
@@ -158,6 +162,7 @@ digraph {
   IronPlate -> Battery
   SulfuricAcid -> Battery [label = 20]
 
+  IronOre -> IronPlate
   IronPlate -> IronStick [label = 0.5]
 
   IronPlate -> SteelPlate [label = 5]
@@ -199,7 +204,11 @@ digraph {
 
   IronStick -> Rail [label = 0.5]
   SteelPlate -> Rail [label = 0.5]
+  IronOre -> Concrete [label = "1/10"]
   Stone -> Rail [label = 0.5]
+  Stone -> StoneBrick [label = 2]
+  StoneBrick -> Concrete [label = "0.5"]
+  Water -> Concrete [label = 10]
 
   IronGearWheel -> AutomationSciencePack_RED
   CopperPlate -> AutomationSciencePack_RED
@@ -210,6 +219,10 @@ digraph {
   AdvancedCircuit -> ChemicalSciencePack_BLUE [label = 1.5]
   EngineUnit -> ChemicalSciencePack_BLUE
   Sulfur -> ChemicalSciencePack_BLUE [label = 0.5]
+
+  AdvancedCircuit -> ElectricFurnace [label = 5]
+  SteelPlate -> ElectricFurnace [label = 10]
+  StoneBrick -> ElectricFurnace [label = 10]
 
   ElectricFurnace -> ProductionSciencePack_PURPLE [label = "1/3"]
   ProductivityModule -> ProductionSciencePack_PURPLE [label = "1/3"]
@@ -233,4 +246,10 @@ digraph {
   Grenade -> MilitarySciencePack_GRAY [label = 0.5]
   PiercingRoundsMagazine -> MilitarySciencePack_GRAY [label = 0.5]
   StoneBrick -> MilitarySciencePack_GRAY
+
+  Concrete -> RocketSilo [label = "1K"]
+  ElectricEngineUnit -> RocketSilo [label = 200]
+  Pipe -> RocketSilo [label = 100]
+  ProcessingUnit -> RocketSilo [label = 200]
+  SteelPlate -> RocketSilo [label = "1K"]
 }
