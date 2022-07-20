@@ -27,6 +27,8 @@ digraph {
   RocketPart[image="icons/Rocket_part.png"]
   Concrete[image="icons/Concrete.png"]
   IronOre[image="icons/Iron_ore.png"]
+  Satellite[image="icons/Satellite.png"]
+  Accumulator[image="icons/Accumulator.png"]
 
   Grenade[image="icons/Grenade.png"]
   FirearmMagazine[image="icons/Firearm_magazine.png"]
@@ -74,6 +76,9 @@ digraph {
   ProductionSciencePack_PURPLE[image="icons/Production_science_pack.png"]
   UtilitySciencePack_YELLOW[image="icons/Utility_science_pack.png"]
   MilitarySciencePack_GRAY[image="icons/Military_science_pack.png"]
+
+  SolarPanel[image="icons/Solar_panel.png"]
+  Radar[image="icons/Radar.png"]
 
 
   CopperPlate -> CopperCable [label = 0.5]
@@ -252,4 +257,23 @@ digraph {
   Pipe -> RocketSilo [label = 100]
   ProcessingUnit -> RocketSilo [label = 200]
   SteelPlate -> RocketSilo [label = "1K"]
+
+  Battery -> Accumulator [label = 5]
+  IronPlate -> Accumulator [label = 2]
+
+  ElectronicCircuit -> Radar [label = 5]
+  IronGearWheel -> Radar [label = 5]
+  IronPlate -> Radar [label = 10]
+
+  CopperPlate -> SolarPanel [label = 5]
+  ElectronicCircuit -> SolarPanel [label = 15]
+  SteelPlate -> SolarPanel [label = 5]
+
+  Accumulator -> Satellite [label = 100]
+  LowDensityStructure -> Satellite [label = 100]
+  ProcessingUnit -> Satellite [label = 100]
+  Radar -> Satellite [label = 5]
+  RocketFuel -> Satellite [label = 50]
+  SolarPanel -> Satellite [label = 100]
+
 }
